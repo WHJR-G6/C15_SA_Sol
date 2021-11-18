@@ -91,8 +91,9 @@ function draw() {
   }
 
   player.velocityY = player.velocityY +0.8;
-
-  
+  if(player.y>500){
+    gameState = END;
+  }
   }
 
   else if (gameState === END) {
@@ -138,4 +139,19 @@ function spawnPlatform(){
   platformGroups.add(platforms);
 
   }
-}
+} 
+    
+function reset(){
+    restart.visible = false;
+    gameOver.visible= false;
+    player.x = 250;
+    player.y=300;
+    platform.y=350;
+    player.velocityY = 0;
+    gameState = START;
+    platformGroups.destroyEach();
+    score = 0;
+     
+      
+    }
+
